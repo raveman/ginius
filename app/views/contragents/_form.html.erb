@@ -1,0 +1,41 @@
+<%= form_for(@contragent) do |f| %>
+  <% if @contragent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contragent.errors.count, "error") %> prohibited this contragent from being saved:</h2>
+
+      <ul>
+      <% @contragent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :service %><br>
+    <%= f.text_field :service %>
+  </div>
+  <div class="field">
+    <%= f.label :contact %><br>
+    <%= f.text_field :contact %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.number_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

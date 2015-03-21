@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Contragents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Service</th>
+      <th>Contact</th>
+      <th>Phone</th>
+      <th>Rating</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contragents.each do |contragent| %>
+      <tr>
+        <td><%= contragent.name %></td>
+        <td><%= contragent.service %></td>
+        <td><%= contragent.contact %></td>
+        <td><%= contragent.phone %></td>
+        <td><%= contragent.rating %></td>
+        <td><%= contragent.comment %></td>
+        <td><%= link_to 'Show', contragent %></td>
+        <td><%= link_to 'Edit', edit_contragent_path(contragent) %></td>
+        <td><%= link_to 'Destroy', contragent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contragent', new_contragent_path %>

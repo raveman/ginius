@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @contragent.name %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @contragent.service %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @contragent.contact %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @contragent.phone %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @contragent.rating %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @contragent.comment %>
+</p>
+
+<%= link_to 'Edit', edit_contragent_path(@contragent) %> |
+<%= link_to 'Back', contragents_path %>
