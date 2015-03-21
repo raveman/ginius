@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # devise_for :users
-devise_for :users, path: "auth", path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unlock', registration: 'register', sign_up: 'sing_up' }  resources :clients
-  resources :contragents
+	devise_for :users, path: "auth", path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unlock', registration: 'register', sign_up: 'sing_up' }  
+	resources :clients
+	resources :contragents
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
