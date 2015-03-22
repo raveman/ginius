@@ -7,6 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # creating default roles
-['registered', 'banned', 'admin', 'operator'].each do |role|
+['registered', 'banned', 'admin', 'manager'].each do |role|
 	Role.find_or_create_by({name: role})
 end
+
+raveman = User.create(email: "raveman@raveman.ru", password: "welcome123", first_name:"Bob", last_name: "Ershov")
+ar = Role.find_by_name(:admin)
+raveman.role = [ar]
+raveman.save!
