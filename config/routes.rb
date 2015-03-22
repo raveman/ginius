@@ -3,14 +3,12 @@ Rails.application.routes.draw do
 
 	resources :orders
   # devise_for :users
-	devise_for :users, path: "auth", path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unlock', registration: 'register', sign_up: 'sing_up' }  
+	devise_for :users, path: "user", path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unlock', registration: 'profile', sign_up: 'sign_up' }  
 	
-	scope "/admin" do 
+	scope :admin do 
 		resources :users
+		resources :contragents
 	end
-
-	resources :clients
-	resources :contragents
 
 	root :to => 'pages#home'
 

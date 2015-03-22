@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  def index
-  	@users = User.all
-  end
+  before_action :authenticate_user!
+
+	def index
+		if current_user.admin? 
+	  		@users = User.all
+		end
+	end
 end

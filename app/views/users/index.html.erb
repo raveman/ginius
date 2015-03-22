@@ -1,4 +1,33 @@
-<h1>Пользователи</h1>
-<% @users.each do |user| %>
-	<div class=""><%= user.name %></div>
-<% end %>
+<h2 class="caption">Пользователи</h1>
+
+<%= link_to 'Добавить пользователя', new_user_registration_path %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>E-Mail</th>
+      <th>Имя</th>
+      <th>Роли</th>
+      <th></th>
+    </tr>
+  </thead>
+
+<tbody>
+	<% @users.each do |user| %>
+		<tr>
+			<td><%= user.email %></td>
+			<td><%= "#{user.first_name} #{user.last_name}" %></td>
+			<td>
+				<ul>
+					<% user.role.each do |role| %>
+						<li><%= "#{role.name}" %></li>
+					<% end %>
+				</ul>
+			</td>
+	        <td>
+	        	<%= link_to '', edit_user_registration_path, class: "glyphicon glyphicon-edit" %>
+	        </td>
+		</tr>
+	<% end %>
+	
+</tbody>
