@@ -1,0 +1,47 @@
+<header>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <%= link_to image_tag("ginius-logo.png", :border => 0, :class => ""), root_path, class: "navbar-brand" %>
+		    </div>			
+			
+			<div class="collapse navbar-collapse" id="ginius-navbar">
+				<ul class="nav navbar-nav">
+					<li><%= link_to "Live", root_path %></li>
+					<li><%= link_to "Недвижимость", real_estates_path %></li>
+					<li><%= link_to "О нас", about_path %></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<% if admin_signed_in? %> 
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Админка <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><%= link_to "Заказы", root_path %></li>
+								<li><%= link_to "Контрагенты", root_path %></li>
+								<li><%= link_to "Клиенты", root_path %></li>
+								<li><%= link_to "Все пользователи", users_path %></li>
+							</ul>
+						</li>
+						<li><%= link_to "Профиль", edit_user_registration_path %></li>
+						<li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
+					<% else %>
+						<% if user_signed_in? %>
+							<li><%= link_to "Профиль", edit_user_registration_path %></li>
+							<li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
+						<% else %>
+							<li><%= link_to "Войти", new_user_session_path %></li>
+						<% end %>
+					<% end %>
+				</ul>
+			</div> <!-- /.navbar-collapse -->
+
+		</div> <!-- /.container-fluid -->
+	</nav>
+</header>
