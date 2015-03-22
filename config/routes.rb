@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   # devise_for :users
 	devise_for :users, path: "auth", path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unlock', registration: 'register', sign_up: 'sing_up' }  
 	resources :clients
