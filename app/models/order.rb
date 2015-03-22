@@ -1,4 +1,4 @@
 class Order < ActiveRecord::Base
-  belongs_to :client
-  belongs_to :operator
+	belongs_to :client, class_name: "User"
+	belongs_to :operator, class_name: "User"
 end

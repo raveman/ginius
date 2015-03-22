@@ -3,10 +3,12 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.text :description
       t.text :comment
-      t.references :client, index: true, foreign_key: true
-      t.references :operator, index: true, foreign_key: true
+      t.integer :client
+      t.integer :operator
 
       t.timestamps null: false
     end
+    add_index :orders, :client
+    add_index :orders, :operator
   end
 end

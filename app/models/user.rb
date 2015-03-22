@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	has_and_belongs_to_many :role
+	has_many :order
 
 	before_create :set_default_role
 
