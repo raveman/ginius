@@ -17,6 +17,23 @@ class User < ActiveRecord::Base
 		return false
 	end
 
+	def client?
+ 		self.role.each do |role|
+			if role.name = :registered
+				return true
+			end
+ 		end
+		return false	end
+
+	def manager?
+	 		self.role.each do |role|
+			if role.name = :manager
+				return true
+			end
+ 		end
+		return false
+	end
+
 	private
 	def set_default_role
 		self.role ||= Role.find_by_name('registered')
