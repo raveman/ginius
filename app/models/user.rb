@@ -8,6 +8,15 @@ class User < ActiveRecord::Base
 
 	before_create :set_default_role
 
+ 	def admin?
+ 		self.role.each do |role|
+			if role.name = :admin
+				return true
+			end
+ 		end
+		return false
+	end
+
 	private
 	def set_default_role
 		self.role ||= Role.find_by_name('registered')

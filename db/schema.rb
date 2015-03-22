@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20150322171544) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "roles_users", force: :cascade do |t|
+    t.integer "role_id", limit: 4
+    t.integer "user_id", limit: 4
+  end
+
+  add_index "roles_users", ["role_id"], name: "index_roles_users_on_role_id", using: :btree
+  add_index "roles_users", ["user_id"], name: "index_roles_users_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
     t.string   "encrypted_password",     limit: 255,   default: "", null: false
