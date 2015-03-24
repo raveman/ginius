@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322171544) do
+ActiveRecord::Schema.define(version: 20150324175012) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -36,14 +36,24 @@ ActiveRecord::Schema.define(version: 20150322171544) do
   create_table "orders", force: :cascade do |t|
     t.text     "description", limit: 65535
     t.text     "comment",     limit: 65535
-    t.integer  "client",      limit: 4
+    t.integer  "client_id",   limit: 4
     t.integer  "operator",    limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
 
-  add_index "orders", ["client"], name: "index_orders_on_client", using: :btree
+  add_index "orders", ["client_id"], name: "index_orders_on_client_id", using: :btree
   add_index "orders", ["operator"], name: "index_orders_on_operator", using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "first_name", limit: 255
+    t.string   "last_name",  limit: 255
+    t.string   "phone",      limit: 255
+    t.string   "address",    limit: 255
+    t.string   "comment",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
