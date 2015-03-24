@@ -27,6 +27,9 @@ class OrdersController < AdminController
 
 	# GET /orders/1/edit
 	def edit
+		add_breadcrumb 'Главная', :root_path
+		add_breadcrumb 'Заказы', :orders_path
+		add_breadcrumb "Редактирую заказ № #{@order.id}"	
 	end
 
 	# POST /orders
@@ -49,15 +52,15 @@ class OrdersController < AdminController
 	# PATCH/PUT /orders/1
 	# PATCH/PUT /orders/1.json
 	def update
-	respond_to do |format|
-	if @order.update(order_params)
-	format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-	format.json { render :show, status: :ok, location: @order }
-	else
-	format.html { render :edit }
-	format.json { render json: @order.errors, status: :unprocessable_entity }
-	end
-	end
+		respond_to do |format|
+			if @order.update(order_params)
+				format.html { redirect_to @order, notice: 'Заказ обновлен.' }
+				format.json { render :show, status: :ok, location: @order }
+			else
+				format.html { render :edit }
+				format.json { render json: @order.errors, status: :unprocessable_entity }
+			end
+		end
 	end
 
 	# DELETE /orders/1
@@ -65,7 +68,7 @@ class OrdersController < AdminController
 	def destroy
 		@order.destroy
 		respond_to do |format|
-			format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+			format.html { redirect_to orders_url, notice: 'Заказ удален.' }
 			format.json { head :no_content }
 		end
 	end
