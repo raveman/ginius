@@ -26,4 +26,3 @@ test:
 production:
   <<: *default
   database: giniusdb
-  password: 
