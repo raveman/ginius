@@ -1,4 +1,4 @@
-class ContragentsController < ApplicationController
+class ContragentsController < AdminController
   before_action :set_contragent, only: [:show, :edit, :update, :destroy]
 
   # GET /contragents
