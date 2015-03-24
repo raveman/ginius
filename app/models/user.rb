@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
 		return false
 	end
 
+	def self.operators
+		User.all
+	end
+
 	private
 	def set_default_role
 		self.role ||= Role.find_by_name('registered')
