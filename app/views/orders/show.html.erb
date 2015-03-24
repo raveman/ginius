@@ -1,24 +1,21 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Description:</strong>
+  <strong>Заказ:</strong>
   <%= @order.description %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>Комментарий:</strong>
   <%= @order.comment %>
 </p>
 
 <p>
-  <strong>Client:</strong>
+  <strong>Клиент:</strong>
   <%= @order.client %>
 </p>
 
 <p>
-  <strong>Operator:</strong>
+  <strong>Оператор:</strong>
   <%= @order.operator %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Редактировать', edit_order_path(@order), class: "btn btn-default" %>
