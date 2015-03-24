@@ -22,7 +22,11 @@
 					<td><%= order.id %></td>
 					<td><%= order.description %></td>
 					<td><%= order.comment %></td>
-					<td><%= order.client %></td>
+					<td>
+						<%= "#{order.client.first_name} #{order.client.last_name}" %> <br>
+						<%= "Тел: #{order.client.phone}" %>
+
+					</td>
 					<td><%= order.operator %></td>
 					<td><%= link_to '', order, class: "glyphicon glyphicon-circle-arrow-right" %>
 						<%= link_to '', edit_order_path(order), class: "glyphicon glyphicon-edit" %>

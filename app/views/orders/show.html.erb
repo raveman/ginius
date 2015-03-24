@@ -10,7 +10,7 @@
 
 <p>
   <strong>Клиент:</strong>
-  <%= @order.client %>
+  <%= link_to "#{@order.client.first_name} #{@order.client.last_name }", edit_user_registration_path(@order.client) %>
 </p>
 
 <p>
