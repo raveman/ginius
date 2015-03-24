@@ -3,7 +3,7 @@ class AdminController < ApplicationController
 
 	private
 	
-	def ensure_admin
+	def ensure_admin!
 		unless current_user.admin?
 			sign_out current_user
 			redirect_to root_path
