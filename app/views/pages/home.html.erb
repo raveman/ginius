@@ -1,1 +1,20 @@
-<h2>Main page</h2>
+<div class="jumbotron">
+	<div class="ad-text text-center">
+		<% if user_signed_in? %>
+			<br>
+			<p>Привет <%= current_user.first_name %>!</p>
+				<%= link_to "Сделай заказ", new_order_path, class: "btn btn-success btn-lg" %>
+			</p>
+			<p>или напиши СМС на телефон</p>
+			<p class="phone">+7 (999) 888-77-55</p>
+		<% else %>
+			<p>Пришлите СМС на этот телефон все что вы хотите:</p>
+			<p class="phone">+7 (999) 888-77-55</p>
+			<p>или пройдите<br>
+			<%= link_to "регистрацию", new_user_session_path, class: "btn btn-success btn-lg" %> <br>
+			и оставляйте заявки сразу на сайте</p>
+		<% end %>
+
+	</div>
+	<% #render 'orders/form' %>
+</div>
