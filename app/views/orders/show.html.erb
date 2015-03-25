@@ -1,4 +1,6 @@
-<p  
+<h2 class="caption">Заказ № <%= @order.id %> от <%= @order.date_and_time_created %></h2>
+
+<p>  
   <strong>Заказ:</strong>
   <%= @order.description %>
 </p>
@@ -6,6 +8,11 @@
 <p>
   <strong>Комментарий:</strong>
   <%= @order.comment %>
+</p>
+
+<p>
+  <strong>Статус заказа:</strong>
+  <%= OrderStatus.description[OrderStatus.statuses.invert[@order.status]] %>
 </p>
 
 <% if current_user.manager? %>

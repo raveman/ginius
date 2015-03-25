@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
 		if @order.client == current_user
 			add_breadcrumb 'Главная', :root_path
 			add_breadcrumb 'Заказы', :orders_path
-			add_breadcrumb "Заказ № #{@order.id}"
+			add_breadcrumb "Заказ № #{@order.id} от #{@order.date_and_time_created}"
 		else
 			redirect_to orders_path, notice: "У вас нет такого заказа"
 		end
@@ -45,9 +45,10 @@ class OrdersController < ApplicationController
 	# POST /orders.json
 	def create
 		@order = Order.new(order_params)
+		@order.client = current_user
+		@order.satus = OrderStatus.statuses(:new)
 
 		respond_to do |format|
-			@order.client = current_user
 			if @order.save
 				format.html { redirect_to @order, notice: 'Ваш заказ принят!' }
 				format.json { render :show, status: :created, location: @order }

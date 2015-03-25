@@ -21,6 +21,7 @@
 					<th>Номер заказа</th>
 					<th>Описание</th>
 					<th>Комментарий</th>
+					<th>Статус</th>
 					<% if current_user.manager? %>
 						<th>Клиент</th>
 						<th>Оператор</th>
@@ -35,6 +36,7 @@
 						<td><%= link_to order.id, order %></td>
 						<td><%= order.description %></td>
 						<td><%= order.comment %></td>
+						<td><%= OrderStatus.description[OrderStatus.statuses.invert[order.status]] %></td>
 						<% if current_user.manager? %>
 							<td>
 								<%= "#{order.client.first_name} #{order.client.last_name}" %> <br>
