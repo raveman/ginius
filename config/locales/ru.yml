@@ -22,6 +22,12 @@
 ru:
   hello: "Привет мир!"
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            phone:
+              improbable_phone: неправдоподобный номер телефона
     attributes:
       user:
         first_name: Имя

@@ -6,7 +6,7 @@
 		<%= f.text_field :first_name, required: true, autofocus: true, placeholder: "Иван" %>
 		<%= f.text_field :last_name, required: true, placeholder: "Иванов" %>
 	    <%= f.email_field :email, required: true, placeholder: "email@email.ru" %>
-		<%= f.text_field :phone, required: true, placeholder: "+7 (111) 222-33-55" %>
+		<%= f.telephone_field :phone, required: true, placeholder: "+7 (111) 222-33-55", maxlength: 18 %>
 		<%= f.text_area :address, rows: 4 %>
 
 	    <%= f.password_field :password, autocomplete: "off", help: "минимум #{@minimum_password_length} символов" %>

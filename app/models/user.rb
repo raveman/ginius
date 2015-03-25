@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :role
 	has_many :order
 
+	phony_normalize :phone, :default_country_code =>'RU'
+
+	# validates_plausible_phone :phone, presence: true, country_number: 'RU'
+
 	before_create :set_default_role
 
  	def admin?
