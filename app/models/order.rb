@@ -3,4 +3,6 @@ class Order < ActiveRecord::Base
 	belongs_to :operator, class_name: "User"
 
 	# TODO add validations
+	
+
 end

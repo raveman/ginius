@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # creating default roles
-['registered', 'banned', 'admin', 'manager'].each do |role|
+['registered', 'admin', 'banned', 'manager'].each do |role|
 	Role.find_or_create_by({name: role})
 end
 
