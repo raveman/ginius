@@ -1,0 +1,4 @@
+README
+======
+
+Ginius Rails app
