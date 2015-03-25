@@ -32,6 +32,8 @@ ru:
         password_confirmation: Повторите пароль
         current_password: Текущий пароль
         remember_me: Запомнить
+        phone: Телефон
+        address: Адрес
       order:
         comment: Комментарий
         description: Описание заказа

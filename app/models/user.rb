@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 		return false	end
 
 	def manager?
-	 		self.role.each do |role|
+ 		self.role.each do |role|
 			if role.name = :manager || role.name = :admin
 				return true
 			end
