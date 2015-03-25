@@ -1,40 +1,52 @@
-<h2>Заказы</h2>
+<% if current_user.manager? %>
+	<h2>Все заказы</h2>
+<% else %>
+	<h2>Мои заказы</h2>
+<% end %>
+
 
 <div class="row">
 	
-	<%= link_to 'Новый заказ', new_order_path %>
+	<%= link_to new_order_path, class: "btn btn-default" do %>
+		<span class="glyphicon glyphicon-plus"></span> Новый заказ
+	<% end %>
 	<br>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Описание</th>
-				<th>Комментарий</th>
-				<th>Клиент</th>
-				<th>Оператор</th>
-				<th></th>
-			</tr>
-		</thead>
+	<br>
+	<% if @orders.blank? %>
+		<p>У вас нет ни одного заказа</p>
+	<% else %>
 
-		<tbody>
-			<% @orders.each do |order| %>
+		<table class="table table-striped">
+			<thead>
 				<tr>
-					<td><%= order.id %></td>
-					<td><%= order.description %></td>
-					<td><%= order.comment %></td>
-					<td>
-						<%= "#{order.client.first_name} #{order.client.last_name}" %> <br>
-						<%= "Тел: #{order.client.phone}" %>
-
-					</td>
-					<td><%= order.operator %></td>
-					<td><%= link_to '', order, class: "glyphicon glyphicon-circle-arrow-right" %>
-						<%= link_to '', edit_order_path(order), class: "glyphicon glyphicon-edit" %>
-						<%= link_to '', order, method: :delete, class: "glyphicon glyphicon-remove", data: { confirm: 'Are you sure?' } %>
-					</td>
+					<th>#</th>
+					<th>Описание</th>
+					<th>Комментарий</th>
+					<th>Клиент</th>
+					<th>Оператор</th>
+					<th></th>
 				</tr>
-			<% end %>
-		</tbody>
-	</table>
+			</thead>
 
+			<tbody>
+				<% @orders.each do |order| %>
+					<tr>
+						<td><%= order.id %></td>
+						<td><%= order.description %></td>
+						<td><%= order.comment %></td>
+						<td>
+							<%= "#{order.client.first_name} #{order.client.last_name}" %> <br>
+							<%= "Тел: #{order.client.phone}" %>
+
+						</td>
+						<td><%= order.operator %></td>
+						<td><%= link_to '', order, class: "glyphicon glyphicon-circle-arrow-right" %>
+							<%= link_to '', edit_order_path(order), class: "glyphicon glyphicon-edit" %>
+							<%= link_to '', order, method: :delete, class: "glyphicon glyphicon-remove", data: { confirm: 'Are you sure?' } %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
 </div>

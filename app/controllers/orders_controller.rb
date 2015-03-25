@@ -1,11 +1,16 @@
-class OrdersController < AdminController
+class OrdersController < ApplicationController
 	before_action :set_order, only: [:show, :edit, :update, :destroy]
 
 	# GET /orders
 	# GET /orders.json
 	def index
 		add_breadcrumb 'Главная', :root_path
-		@orders = Order.all
+		add_breadcrumb 'Заказы', :orders_path
+		if current_user.manager? 
+			@orders = Order.all
+		else
+			@orders = Order.find_by_client_id(current_user)
+		end		
 	end
 
 	# GET /orders/1

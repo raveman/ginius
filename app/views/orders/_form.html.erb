@@ -13,8 +13,9 @@
 
 	<%= f.text_area :description, placeholder: "Хочу себе... ", rows: 8 %>
 	<%= f.text_area :comment, placeholder: "Комментарий к заказу...", row: 5 %>
-	<%= f.select :operator, User.operators.collect { |user| [ "#{user.first_name} #{user.last_name}", user.id] } %>
-
+	<% if current_user.manager? %>
+		<%= f.select :operator, User.operators.collect { |user| [ "#{user.first_name} #{user.last_name}", user.id] } %>
+	<% end %>
 
 	<div class="actions">
 		<%= f.submit "Сохранить заказ", class: "btn btn-success" %>
