@@ -1,4 +1,5 @@
-<div class="jumbotron">
+<div class="row">
+	<%= image_tag "ginius_logo_big.jpg", class: "center-block" %>
 	<div class="ad-text text-center">
 		<% if user_signed_in? %>
 			<br>
@@ -14,6 +15,7 @@
 			<%= link_to "регистрацию", new_user_registration_path, class: "btn btn-success btn-lg" %> <br>
 			и оставляйте заявки сразу на сайте</p>
 		<% end %>
+		<h2>Как это работает</h2>
 
 	</div>
 	<% #render 'orders/form' %>
