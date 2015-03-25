@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
 	def create
 		@order = Order.new(order_params)
 		@order.client = current_user
-		@order.satus = OrderStatus.statuses(:new)
+		@order.status = OrderStatus.statuses[:new]
 
 		respond_to do |format|
 			if @order.save
@@ -62,6 +62,10 @@ class OrdersController < ApplicationController
 	# PATCH/PUT /orders/1
 	# PATCH/PUT /orders/1.json
 	def update
+
+		# TODO check whether user updating it's own order
+
+		# if user updates it's order, than change order status to updated
 		respond_to do |format|
 			if @order.update(order_params)
 				format.html { redirect_to @order, notice: 'Заказ обновлен.' }
