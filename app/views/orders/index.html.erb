@@ -18,7 +18,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Номер заказа</th>
+					<th>Заказ №</th>
 					<th>Описание</th>
 					<th>Комментарий</th>
 					<th>Статус</th>
@@ -33,7 +33,12 @@
 			<tbody>
 				<% Array(@orders).each do |order| %>
 					<tr>
-						<td><%= link_to order.id, order %></td>
+						<td>
+							<%= link_to order do %> 
+								<%= order.id %>
+								от <%= order.date_and_time_created %>
+							<% end %>
+						</td>
 						<td><%= order.description %></td>
 						<td><%= order.comment %></td>
 						<td><%= OrderStatus.description[OrderStatus.statuses.invert[order.status]] %></td>
