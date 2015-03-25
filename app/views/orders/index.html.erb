@@ -15,31 +15,34 @@
 	<% if @orders.blank? %>
 		<p>У вас нет ни одного заказа</p>
 	<% else %>
-
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th>Номер заказа</th>
 					<th>Описание</th>
 					<th>Комментарий</th>
-					<th>Клиент</th>
-					<th>Оператор</th>
+					<% if current_user.manager? %>
+						<th>Клиент</th>
+						<th>Оператор</th>
+					<% end %>
 					<th></th>
 				</tr>
 			</thead>
 
 			<tbody>
-				<% @orders.each do |order| %>
+				<% Array(@orders).each do |order| %>
 					<tr>
-						<td><%= order.id %></td>
+						<td><%= link_to order.id, order %></td>
 						<td><%= order.description %></td>
 						<td><%= order.comment %></td>
-						<td>
-							<%= "#{order.client.first_name} #{order.client.last_name}" %> <br>
-							<%= "Тел: #{order.client.phone}" %>
-
-						</td>
-						<td><%= order.operator %></td>
+						<% if current_user.manager? %>
+							<td>
+								<%= "#{order.client.first_name} #{order.client.last_name}" %> <br>
+								<%= "#{order.client.email}" %> <br>
+								<%= "Тел: #{order.client.phone}" %>
+							</td>
+							<td><%= order.operator %></td>
+						<% end %>
 						<td><%= link_to '', order, class: "glyphicon glyphicon-circle-arrow-right" %>
 							<%= link_to '', edit_order_path(order), class: "glyphicon glyphicon-edit" %>
 							<%= link_to '', order, method: :delete, class: "glyphicon glyphicon-remove", data: { confirm: 'Are you sure?' } %>

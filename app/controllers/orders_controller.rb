@@ -9,16 +9,20 @@ class OrdersController < ApplicationController
 		if current_user.manager? 
 			@orders = Order.all
 		else
-			@orders = Order.find_by_client_id(current_user)
+			@orders = Order.find_by_client_id(current_user.id)
 		end		
 	end
 
 	# GET /orders/1
 	# GET /orders/1.json
 	def show
-		add_breadcrumb 'Главная', :root_path
-		add_breadcrumb 'Заказы', :orders_path
-		add_breadcrumb "Заказ № #{@order.id}"
+		if @order.client == current_user
+			add_breadcrumb 'Главная', :root_path
+			add_breadcrumb 'Заказы', :orders_path
+			add_breadcrumb "Заказ № #{@order.id}"
+		else
+			redirect_to orders_path, notice: "У вас нет такого заказа"
+		end
 	end
 
 	# GET /orders/new
@@ -71,21 +75,39 @@ class OrdersController < ApplicationController
 	# DELETE /orders/1
 	# DELETE /orders/1.json
 	def destroy
-		@order.destroy
-		respond_to do |format|
-			format.html { redirect_to orders_url, notice: 'Заказ удален.' }
-			format.json { head :no_content }
+		if !current_user.manager?
+			if @order.client == current_user
+				@order.destroy
+				respond_to do |format|
+					format.html { redirect_to orders_url, notice: 'Заказ удален.' }
+					format.json { head :no_content }
+				end
+			end
+		else
+			@order.destroy
+			respond_to do |format|
+				format.html { redirect_to orders_url, notice: 'Заказ удален.' }
+				format.json { head :no_content }
+			end
 		end
 	end
 
 	private
 	# Use callbacks to share common setup or constraints between actions.
 	def set_order
-		@order = Order.find(params[:id])
+		begin
+			@order = Order.find(params[:id])
+		rescue 
+			redirect_to orders_path
+		end
 	end
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def order_params
-		params.require(:order).permit(:description, :comment, :client_id, :operator_id)
+		if current_user.manager?
+			params.require(:order).permit(:description, :comment, :client_id, :operator_id, :status)
+		else
+			params.require(:order).permit(:description, :comment, :client_id)
+		end
 	end
 end

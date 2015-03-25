@@ -1,4 +1,4 @@
-<p>
+<p  
   <strong>Заказ:</strong>
   <%= @order.description %>
 </p>
@@ -8,14 +8,15 @@
   <%= @order.comment %>
 </p>
 
-<p>
-  <strong>Клиент:</strong>
-  <%= link_to "#{@order.client.first_name} #{@order.client.last_name }", edit_user_registration_path(@order.client) %>
-</p>
+<% if current_user.manager? %>
+	<p>
+	  <strong>Клиент:</strong>
+	  <%= link_to "#{@order.client.first_name} #{@order.client.last_name }", edit_user_registration_path(@order.client) %>
+	</p>
 
-<p>
-  <strong>Оператор:</strong>
-  <%= @order.operator %>
-</p>
-
+	<p>
+	  <strong>Оператор:</strong>
+	  <%= @order.operator %>
+	</p>
+<% end %>
 <%= link_to 'Редактировать', edit_order_path(@order), class: "btn btn-default" %>
