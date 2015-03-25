@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
 	def manager?
 	 		self.role.each do |role|
-			if role.name = :manager
+			if role.name = :manager || role.name = :admin
 				return true
 			end
  		end
