@@ -3,8 +3,8 @@
 ru:
   devise:
     confirmations:
-      confirmed: "Ваша учетная запись подтверждена."
-      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
+      confirmed: "Ваш адрес эл. почты успешно подтвержден."
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению адреса эл. почты."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions about how to confirm your account in a few minutes."
     failure:
       already_authenticated: "You are already signed in."
@@ -15,7 +15,7 @@ ru:
       not_found_in_database: "Неправильный логин или пароль."
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your account before continuing."
+      unconfirmed: "Вы должны подтвердить вашу учетную запись."
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
