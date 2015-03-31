@@ -15,3 +15,7 @@ raveman = User.create(email: "raveman@raveman.ru", password: "welcome123", first
 ar = Role.find_by_name(:admin)
 raveman.role = [ar]
 raveman.save!
+
+admin = User.create(email: "admin@ginius.ru", password: "giniuswelcome")
+admin.role = [ar]
+admin.save!
