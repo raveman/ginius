@@ -4,11 +4,114 @@
 
 $green: #008000;
 
+.navbar-nav {
+	li {
+		a {
+			font-size: 20px;
+		}
+	}
+
+}
+
+h2 {
+	margin-bottom: 2em;
+	text-transform: uppercase;
+}
+
+#how_it_works {
+
+
+
+	.btn-primary {
+		text-transform: uppercase;
+	}
+
+	form {
+		margin: 2em 0 2em 0;
+	}
+
+}
+
+#services {
+
+	h3, h4 {
+		background-color: $ginius_base_color;
+		text-transform: uppercase;
+		padding: 5px 0 5px 5px;
+		text-align: left;
+	}
+
+	p {
+		text-align: left;
+	}
+}
+
+
 .phone {
-	font-size: 32px !important;
-	color: $green;
+	font-size: 24px !important;
+	// color: $green;
 }
 
 .first-page-text {
-	font-size: 24px;
+	font-size: 16px;
+}
+
+
+// .header {
+// 	float: left;
+// 	display: block;
+// }
+
+// $screen-md-min: 992px;
+
+@media (min-width: $screen-lg-min) { 
+	.horizontal_line_left {
+		border-top: 1px solid;
+		position: relative;
+		top: 38px;
+		width: 330px;
+	}
+
+	.horizontal_line_right {
+		border-top: 1px solid;
+		position: relative;
+		top: 38px;
+		width: 280px;
+		left: 630px;
+	}
+}
+
+@media (max-width: $screen-md-max) { 
+	.horizontal_line_left {
+		border-top: 1px solid;
+		position: relative;
+		top: 38px;
+		width: 200px;
+	}
+
+	.horizontal_line_right {
+		border-top: 1px solid;
+		position: relative;
+		top: 38px;
+		width: 200px;
+		left: 550px;
+	}
+}
+
+
+@media (max-width: $screen-xs-max) { 
+	.horizontal_line_left {
+		border-top: 1px solid;
+		position: relative;
+		top: 38px;
+		width: 200px;
+	}
+
+	.horizontal_line_right {
+		border-top: 1px solid;
+		position: relative;
+		top: 38px;
+		width: 200px;
+		left: 550px;
+	}
 }

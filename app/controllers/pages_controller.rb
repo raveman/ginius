@@ -1,7 +1,15 @@
 class PagesController < ApplicationController
 	def home
+		@order = Order.new
 	end
 
-	def about
+	def contacts
 	end
+
+	def jobs
+	end
+
+	def partner
+	end
+
 end

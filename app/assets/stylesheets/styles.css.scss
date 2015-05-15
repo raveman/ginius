@@ -1,6 +1,26 @@
+$ginius_base_color: #ffc521;
+
+
+// bootstrap overrides
+$font-family-sans-serif: "SegoeUI", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
+
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+$navbar-height: 88px;
+$navbar-default-bg: #fff;
+$navbar-default-color: #000;
+$navbar-default-link-color: #5f5f5f;
+$navbar-default-border: #fff;
+
+$btn-primary-color: #000;
+
+$btn-primary-bg: $ginius_base_color;
+
 @import "bootstrap";
 @import "pages";
 
-.logo {
-	margin-top: -10px;
+.navbar-brand img {
+	margin-top: -34px;
 }
