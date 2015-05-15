@@ -13,10 +13,13 @@
 
 	<%= f.text_area :description, placeholder: "Хочу себе... ", rows: 8, hide_label: true %>
 	<!-- <%= f.text_area :comment, placeholder: "Комментарий к заказу...", row: 5 %> -->
-	<% if current_user %>
-		<% if current_user.manager? %>
-			<%= f.select :status, OrderStatus.statuses %>
-			<%= f.select :operator, User.operators.collect { |user| [ "#{user.first_name} #{user.last_name}", user.id] } %>
+
+	<% if !current_page?(root_path) %>
+		<% if current_user %>
+			<% if current_user.manager? %>
+				<%= f.select :status, OrderStatus.statuses %>
+				<%= f.select :operator, User.operators.collect { |user| [ "#{user.first_name} #{user.last_name}", user.id] } %>
+			<% end %>
 		<% end %>
 	<% end %>
 
