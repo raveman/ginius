@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $green: #008000;
+$margin-bottom: 2em;
 
 .navbar-nav {
 	li {
@@ -13,13 +14,9 @@ $green: #008000;
 
 }
 
-h2 {
-	margin-bottom: 2em;
-	text-transform: uppercase;
-}
 
 #how_it_works {
-
+	margin: $margin-bottom 0 $margin-bottom 0;
 
 
 	.btn-primary {
@@ -27,12 +24,13 @@ h2 {
 	}
 
 	form {
-		margin: 2em 0 2em 0;
+		margin: $margin-bottom 0 $margin-bottom 0;
 	}
 
 }
 
 #services {
+	margin: $margin-bottom 0 $margin-bottom 0;
 
 	h3, h4 {
 		background-color: $ginius_base_color;
@@ -47,6 +45,20 @@ h2 {
 }
 
 
+#partnership {
+	margin: $margin-bottom 0 $margin-bottom 0;
+}
+
+#jobs {
+	margin: $margin-bottom 0 $margin-bottom 0;
+}
+
+#contacts {
+	margin: $margin-bottom 0 $margin-bottom 0;
+}
+
+
+
 .phone {
 	font-size: 24px !important;
 	// color: $green;
@@ -54,6 +66,20 @@ h2 {
 
 .first-page-text {
 	font-size: 16px;
+
+	h2 {
+		z-index: 0;
+		background-color: #fff;
+		padding: 10px;
+		width: 100%;
+		display: inline;
+		text-transform: uppercase;
+	}
+
+	.header {
+		margin-bottom: $margin-bottom;
+	}
+
 }
 
 
@@ -64,54 +90,10 @@ h2 {
 
 // $screen-md-min: 992px;
 
-@media (min-width: $screen-lg-min) { 
-	.horizontal_line_left {
-		border-top: 1px solid;
-		position: relative;
-		top: 38px;
-		width: 330px;
-	}
-
-	.horizontal_line_right {
-		border-top: 1px solid;
-		position: relative;
-		top: 38px;
-		width: 280px;
-		left: 630px;
-	}
-}
-
-@media (max-width: $screen-md-max) { 
-	.horizontal_line_left {
-		border-top: 1px solid;
-		position: relative;
-		top: 38px;
-		width: 200px;
-	}
-
-	.horizontal_line_right {
-		border-top: 1px solid;
-		position: relative;
-		top: 38px;
-		width: 200px;
-		left: 550px;
-	}
-}
-
-
-@media (max-width: $screen-xs-max) { 
-	.horizontal_line_left {
-		border-top: 1px solid;
-		position: relative;
-		top: 38px;
-		width: 200px;
-	}
-
-	.horizontal_line_right {
-		border-top: 1px solid;
-		position: relative;
-		top: 38px;
-		width: 200px;
-		left: 550px;
-	}
+.horizontal_line {
+	border-top: 1px solid;
+	position: relative;
+	top: 1em;
+	width: 100%;
+	z-index: -10;
 }
