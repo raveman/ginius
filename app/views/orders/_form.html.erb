@@ -11,7 +11,7 @@
 		</div>
 	<% end %>
 
-	<%= f.text_area :description, placeholder: "Хочу себе... ", rows: 8 %>
+	<%= f.text_area :description, placeholder: "Хочу себе... ", rows: 8, hide_label: true %>
 	<!-- <%= f.text_area :comment, placeholder: "Комментарий к заказу...", row: 5 %> -->
 	<% if current_user %>
 		<% if current_user.manager? %>
