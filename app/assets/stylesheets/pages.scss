@@ -28,7 +28,7 @@ $margin-bottom: 2em;
 	}
 
 	img {
-		margin-bottom: $margin-bottom;
+		margin-bottom: $margin-bottom*2;
 	}
 
 	p {
@@ -105,3 +105,46 @@ $margin-bottom: 2em;
 	width: 100%;
 	z-index: -10;
 }
+
+.icon {
+	.circle {
+		border-radius: 50%;
+		width: 120px;
+		height: 120px;
+		border: 2px dashed #6b4f8c;
+
+	}
+
+	.horizontal_line {
+		border-top: 2px dashed #6b4f8c;
+
+	}
+}
+
+
+@media (min-width: $screen-lg-min) { 
+	.circle {
+		position: absolute;
+		left: 134px;
+		top: -20px;
+		z-index: -10;
+	}
+
+	.horizontal_line {
+		position: absolute;
+		top: 2.5em;
+		left: 252px;
+		z-index: -10;
+		width: 70%;
+	}
+
+}
+
+@media (max-width: $screen-md-max) { 
+
+}
+
+
+@media (max-width: $screen-xs-max) { 
+}
+
