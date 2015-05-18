@@ -112,12 +112,10 @@ $margin-bottom: 2em;
 		width: 120px;
 		height: 120px;
 		border: 2px dashed #6b4f8c;
-
 	}
 
-	.horizontal_line {
+	.horizontal_line_circle {
 		border-top: 2px dashed #6b4f8c;
-
 	}
 }
 
@@ -130,21 +128,64 @@ $margin-bottom: 2em;
 		z-index: -10;
 	}
 
-	.horizontal_line {
+	.horizontal_line_circle {
 		position: absolute;
 		top: 2.5em;
 		left: 252px;
 		z-index: -10;
 		width: 70%;
 	}
-
 }
 
 @media (max-width: $screen-md-max) { 
+	.circle {
+		position: absolute;
+		left: 100px;
+		top: -20px;
+		z-index: -10;
+	}
+
+	.horizontal_line_circle {
+		position: absolute;
+		top: 2.5em;
+		left: 220px;
+		z-index: -10;
+		width: 63%;
+	}
 
 }
 
+
+@media (max-width: $screen-sm-max) { 
+	.circle {
+		position: absolute;
+		left: 65px;
+		top: -20px;
+		z-index: -10;
+	}
+
+	.horizontal_line_circle {
+		position: absolute;
+		top: 2.5em;
+		left: 184px;
+		z-index: -10;
+		width: 53%;
+	}
+}
 
 @media (max-width: $screen-xs-max) { 
-}
+	.circle {
+		position: absolute;
+		left: 41%;
+		top: -20px;
+		z-index: -10;
+	}
 
+	.horizontal_line_circle {
+		position: absolute;
+		top: 2.5em;
+		left: 184px;
+		z-index: -10;
+		width: 53%;
+	}
+}
