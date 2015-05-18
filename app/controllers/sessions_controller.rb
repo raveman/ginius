@@ -1,3 +1,5 @@
 class SessionsController < Devise::SessionsController 
-	respond_to :html, :json
+	clear_respond_to  
+	respond_to :json
+	# respond_to :html
 end

@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 	devise_for :users, path: "user", path_names: { 
 		sign_in: 'login', 
 		sign_out: 'logout', 
-		password: 'secret', 
 		confirmation: 'verification', 
 		unlock: 'unlock', 
 		registration: 'profile', 
@@ -14,7 +13,6 @@ Rails.application.routes.draw do
 			registrations: 'registrations',
 			sessions: 'sessions'
 		}
-
 	
 	scope :admin do 
 		resources :users
@@ -26,7 +24,6 @@ Rails.application.routes.draw do
 	get 'contacts' => 'pages#contacts'
 
 	root :to => 'pages#home'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
