@@ -4,6 +4,7 @@
 
 $green: #008000;
 $margin-bottom: 2em;
+$text-color: #585858;
 
 .navbar-nav {
 	li {
@@ -77,14 +78,20 @@ $margin-bottom: 2em;
 
 .first-page-text {
 	font-size: 16px;
+	color: $text-color;
 
 	h2 {
+		color: black;
 		z-index: 0;
 		background-color: #fff;
 		padding: 10px;
 		width: 100%;
 		display: inline;
 		text-transform: uppercase;
+	}
+
+	h4 {
+		color: black;
 	}
 
 	.header {

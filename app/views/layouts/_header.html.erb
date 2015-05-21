@@ -13,12 +13,10 @@
 			
 			<div class="collapse navbar-collapse" id="ginius-navbar">
 				<ul class="nav navbar-nav">
-					<li><%= link_to "Партнёрство", '/#partnership' %></li>
-					<li><%= link_to "Работа у нас", '/#jobs' %></li>
-					<li><%= link_to "О нас", '/#contacts' %></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to "Партнёрство", '/#partnership' %></li>
 					<% if user_signed_in? %>
 						<li><%= link_to "Мои заказы", orders_path %></li>
 						<% if current_user.admin? %> 
