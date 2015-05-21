@@ -7,10 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/header' %>
-<%= render 'layouts/sign_in' %>
+
 
 <div class="container">
+
+
+	<%= render 'layouts/header' %>
+	<%= render 'layouts/sign_in_up' %>
 
 	<% if @breadcrumbs %>
 		<ol class="breadcrumb">
@@ -30,6 +33,8 @@
 	<%= yield %>
 
 	<%= render 'layouts/footer'%>
+
+
 </div>
 
 </body>

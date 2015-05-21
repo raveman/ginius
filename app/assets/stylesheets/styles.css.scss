@@ -3,6 +3,13 @@ $ginius_base_color: #ffc521;
 // bootstrap overrides
 $font-family-sans-serif: "SegoeUI", "Helvetica Neue Light", Helvetica, Arial, sans-serif;
 
+// $screen-lg-min: 960px;
+// $screen-lg: 940px;
+// $screen-md-min: 960px;
+
+$grid-gutter-width: 20px;
+$container-large-desktop: (940px + $grid-gutter-width);
+
 $border-radius-base: 0;
 $border-radius-large: 0;
 $border-radius-small: 0;
@@ -12,6 +19,9 @@ $navbar-default-bg: #fff;
 $navbar-default-color: #000;
 $navbar-default-link-color: #5f5f5f;
 $navbar-default-border: #fff;
+
+$nav-pills-active-link-hover-bg: $ginius_base_color;
+$nav-pills-active-link-hover-color: black;
 
 $btn-primary-color: #000;
 

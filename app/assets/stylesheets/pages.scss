@@ -14,6 +14,9 @@ $margin-bottom: 2em;
 
 }
 
+.nav-pills li a {
+	color: black;
+}
 
 #how_it_works {
 	margin: $margin-bottom 0 $margin-bottom 0;
@@ -24,11 +27,11 @@ $margin-bottom: 2em;
 	}
 
 	form {
-		margin: $margin-bottom 0 $margin-bottom 0;
+		margin: $margin-bottom*2 0 $margin-bottom*2 0;
 	}
 
 	img {
-		margin-bottom: $margin-bottom*2;
+		margin-bottom: $margin-bottom;
 	}
 
 	p {
@@ -38,7 +41,7 @@ $margin-bottom: 2em;
 }
 
 #services {
-	margin: $margin-bottom 0 $margin-bottom 0;
+	margin: $margin-bottom 0 $margin-bottom*2 0;
 
 	h3, h4 {
 		background-color: $ginius_base_color;
@@ -54,15 +57,15 @@ $margin-bottom: 2em;
 
 
 #partnership {
-	margin: $margin-bottom 0 $margin-bottom 0;
+	margin: $margin-bottom 0 $margin-bottom*2 0;
 }
 
 #jobs {
-	margin: $margin-bottom 0 $margin-bottom 0;
+	margin: $margin-bottom 0 $margin-bottom*2 0;
 }
 
 #contacts {
-	margin: $margin-bottom 0 $margin-bottom 0;
+	margin: $margin-bottom 0 $margin-bottom*2 0;
 }
 
 
@@ -85,7 +88,7 @@ $margin-bottom: 2em;
 	}
 
 	.header {
-		margin-bottom: $margin-bottom;
+		margin-bottom: $margin-bottom*1.2;
 	}
 
 }
@@ -123,7 +126,7 @@ $margin-bottom: 2em;
 @media (min-width: $screen-lg-min) { 
 	.circle {
 		position: absolute;
-		left: 134px;
+		left: 100px;
 		top: -20px;
 		z-index: -10;
 	}
@@ -131,9 +134,9 @@ $margin-bottom: 2em;
 	.horizontal_line_circle {
 		position: absolute;
 		top: 2.5em;
-		left: 252px;
+		left: 220px;
 		z-index: -10;
-		width: 70%;
+		width: 63%;
 	}
 }
 
