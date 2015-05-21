@@ -1,0 +1,31 @@
+
+
+	<div class="modal-body">
+		<%= bootstrap_form_for(resource, as: resource_name, 
+					url: session_path(resource_name), 
+					:html => { :id => "sign_in_user"},
+					:remote => true	) do |f| %>
+		  <div class="field">
+		    <%= f.email_field :email, autofocus: true %>
+		  </div>
+
+		  <div class="field">
+		    <%= f.password_field :password, autocomplete: "off"%>
+		  </div>
+
+		  <% if devise_mapping.rememberable? -%>
+		    <div class="field">
+		      <%= f.check_box :remember_me %>
+		    </div>
+		  <% end %>
+
+		  <div class="actions">
+		    <%= f.submit "Войти", class: "btn btn-success btn-block" %>
+		  </div>
+		<% end %>
+
+	</div>
+
+	<div class="modal-footer">
+		<%= render "devise/shared/links" %>
+	</div>
