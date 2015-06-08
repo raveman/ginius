@@ -133,7 +133,7 @@ $text-color: #585858;
 @media (min-width: $screen-lg-min) { 
 	.circle {
 		position: absolute;
-		left: 100px;
+		left: 95px;
 		top: -20px;
 		z-index: -10;
 	}
@@ -143,14 +143,14 @@ $text-color: #585858;
 		top: 2.5em;
 		left: 220px;
 		z-index: -10;
-		width: 63%;
+		width: 60%;
 	}
 }
 
 @media (max-width: $screen-md-max) { 
 	.circle {
 		position: absolute;
-		left: 100px;
+		left: 95px;
 		top: -20px;
 		z-index: -10;
 	}
@@ -160,7 +160,7 @@ $text-color: #585858;
 		top: 2.5em;
 		left: 220px;
 		z-index: -10;
-		width: 63%;
+		width: 60%;
 	}
 
 }
@@ -169,7 +169,7 @@ $text-color: #585858;
 @media (max-width: $screen-sm-max) { 
 	.circle {
 		position: absolute;
-		left: 65px;
+		left: 60px;
 		top: -20px;
 		z-index: -10;
 	}
@@ -179,7 +179,7 @@ $text-color: #585858;
 		top: 2.5em;
 		left: 184px;
 		z-index: -10;
-		width: 53%;
+		width: 50%;
 	}
 }
 
