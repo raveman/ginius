@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :profiles
 	resources :orders
   # devise_for :users
 	devise_for :users, path: "user", path_names: { 

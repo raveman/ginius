@@ -1,0 +1,27 @@
+<div class="modal fade" id="sign_in" role="dialog" aria-labelledby="sign_up_label" aria-hidden="true">
+	<div class="modal-dialog">
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<div role="tabpanel">
+					<ul class="nav nav-pills nav-justified" role="tablist">
+						<li role="presentation" class="active"><a href="#signup" aria-controls="home" role="tab" data-toggle="pill"><h3>Регистрация</h3></a></li>
+						<li role="presentation" class=""><a href="#signin" aria-controls="home" role="tab" data-toggle="pill"><h3>Войти</h3></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="signup">
+						<%= render 'layouts/sign_up' %>
+				</div>
+
+				<div role="tabpanel" class="tab-pane" id="signin">
+					<%= render 'layouts/sign_in' %>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
