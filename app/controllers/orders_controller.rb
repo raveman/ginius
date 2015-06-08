@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:new, :create] 
 	before_action :set_order, only: [:show, :edit, :update, :destroy]
 
 	# GET /orders
@@ -33,20 +33,23 @@ class OrdersController < ApplicationController
 		add_breadcrumb 'Новый'
 
 		@order = Order.new
+		@profile = @order.build_profile
 	end
 
 	# GET /orders/1/edit
 	def edit
 		add_breadcrumb 'Главная', :root_path
 		add_breadcrumb 'Заказы', :orders_path
-		add_breadcrumb "Редактирую заказ № #{@order.id}"	
+		add_breadcrumb "Редактирую заказ № #{@order.id}"
+
+		@profile = @order.profile	
 	end
 
 	# POST /orders
 	# POST /orders.json
 	def create
 		@order = Order.new(order_params)
-		@order.client = current_user
+		# @order.client = current_user
 		@order.status = OrderStatus.statuses[:new]
 
 		respond_to do |format|
@@ -110,10 +113,12 @@ class OrdersController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def order_params
-		if current_user.manager?
-			params.require(:order).permit(:description, :comment, :client_id, :operator_id, :status)
+		if current_user
+			if current_user.manager? 
+				params.require(:order).permit(:description, :comment, :status, profile_attributes: [:id, :first_name, :last_name, :phone, :email])
+			end
 		else
-			params.require(:order).permit(:description, :comment, :client_id)
+			params.require(:order).permit(:description, :comment, profile_attributes: [:id, :first_name, :last_name, :phone, :email])
 		end
 	end
 end

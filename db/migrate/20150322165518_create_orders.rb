@@ -3,10 +3,9 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.text :description
       t.text :comment
-      t.integer :profile_id
+      t.belongs_to :profile, index: true
 
       t.timestamps null: false
     end
-    add_index :orders, :profile_id
   end
 end

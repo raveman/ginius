@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
-	belongs_to :operator, class_name: "User"
+	belongs_to :profile
+	# has_one :profile
 	accepts_nested_attributes_for :profile
-
 
 	# TODO add validations
 	def date_and_time_created

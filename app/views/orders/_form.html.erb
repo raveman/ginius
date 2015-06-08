@@ -1,44 +1,35 @@
 <%= bootstrap_form_for(@order) do |f| %>
-	<% if @order.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-			<ul>
-				<% @order.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
 
 	<%= f.text_area :description, placeholder: "Хочу себе... ", rows: 8, hide_label: true %>
 	<!-- <%= f.text_area :comment, placeholder: "Комментарий к заказу...", row: 5 %> -->
 
 	<% if current_page?(root_path) %>
 
-		<div class="modal fade" id="sign_in" role="dialog" aria-labelledby="sign_up_label" aria-hidden="true">
-		<div class="modal-dialog">
-
-			<div class="modal-content">
-				<div class="modal-header">
-					<div role="tabpanel">
-						<ul class="nav nav-pills nav-justified" role="tablist">
-							<li role="presentation" class="active"><a href="#signup" aria-controls="home" role="tab" data-toggle="pill"><h3>Контакты</h3></a></li>
-							<li role="presentation" class=""><a href="#signin" aria-controls="home" role="tab" data-toggle="pill"><h3>Войти</h3></a></li>
-						</ul>
+		<div class="modal fade" id="contacts" role="dialog" aria-labelledby="contacts_label" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3>Контакты</h3></a></li>
 					</div>
-				</div>
+	<% end %>
+					<div role="tabpanel" class="tab-pane active" id="profile">
 
-				<div role="tabpanel" class="tab-pane active" id="signup">
-						<%= render 'layouts/sign_up' %>
-				</div>
+						<%= f.fields_for :profile, @profile do |profile_f| %>
+							<%= profile_f.hidden_field :id, value: @profile.id if @profile.present? %>
+							<%= profile_f.text_field :first_name, label: 'Имя', layout: :horizontal %>
+							<%= profile_f.text_field :last_name, label: 'Фамилия', layout: :horizontal %>
+							<%= profile_f.phone_field :phone, label: 'Телефон', layout: :horizontal, placeholder: '+7 (999) 222-33-44' %>
+							<%= profile_f.email_field :email, label: 'E-Mail', layout: :horizontal %>
+						<% end %>
 
+						<% if current_page?(root_path) %>
+							<%= f.submit "Отправить", class: "btn btn-primary" %>
+						<% end %>
+					</div>
+	<% if current_page?(root_path) %>
+				</div>
 			</div>
-
 		</div>
-		</div>
-
-
 	<% end %>
 
 	<% if !current_page?(root_path) %>
@@ -50,7 +41,12 @@
 		<% end %>
 	<% end %>
 
-	<div class="actions">
+	<% if current_page?(root_path) %>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contacts">
+			Продолжить
+		</button>
+	<% else %>
 		<%= f.submit "Отправить", class: "btn btn-primary" %>
-	</div>
+	<% end %>
+
 <% end %>

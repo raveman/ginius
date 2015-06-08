@@ -11,7 +11,7 @@
 	Role.find_or_create_by({name: role})
 end
 
-raveman = User.create(email: "raveman@raveman.ru", password: "welcome123", first_name:"Bob", last_name: "Ershov")
+raveman = User.create(email: "raveman@raveman.ru", password: "welcome123")
 ar = Role.find_by_name(:admin)
 raveman.role = [ar]
 raveman.save!
