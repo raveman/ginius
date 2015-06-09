@@ -133,7 +133,7 @@ $text-color: #585858;
 @media (min-width: $screen-lg-min) { 
 	.circle {
 		position: absolute;
-		left: 95px;
+		left: 92px;
 		top: -20px;
 		z-index: -10;
 	}
@@ -141,7 +141,7 @@ $text-color: #585858;
 	.horizontal_line_circle {
 		position: absolute;
 		top: 2.5em;
-		left: 220px;
+		left: 210px;
 		z-index: -10;
 		width: 60%;
 	}
@@ -150,7 +150,7 @@ $text-color: #585858;
 @media (max-width: $screen-md-max) { 
 	.circle {
 		position: absolute;
-		left: 95px;
+		left: 92px;
 		top: -20px;
 		z-index: -10;
 	}
@@ -158,9 +158,9 @@ $text-color: #585858;
 	.horizontal_line_circle {
 		position: absolute;
 		top: 2.5em;
-		left: 220px;
+		left: 210px;
 		z-index: -10;
-		width: 60%;
+		width: 59%;
 	}
 
 }

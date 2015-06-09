@@ -23,7 +23,7 @@
 						<% end %>
 
 						<% if current_page?(root_path) %>
-							<%= f.submit "Отправить", class: "btn btn-primary" %>
+							<%= f.submit "ОК", class: "btn btn-primary" %>
 						<% end %>
 					</div>
 	<% if current_page?(root_path) %>
@@ -43,7 +43,7 @@
 
 	<% if current_page?(root_path) %>
 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contacts">
-			Продолжить
+			Отправить
 		</button>
 	<% else %>
 		<%= f.submit "Отправить", class: "btn btn-primary" %>
