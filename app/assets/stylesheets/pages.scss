@@ -9,7 +9,7 @@ $text-color: #585858;
 .navbar-nav {
 	li {
 		a {
-			font-size: 20px;
+			font-size: 18px;
 		}
 	}
 
@@ -117,6 +117,9 @@ $text-color: #585858;
 }
 
 .icon {
+
+	margin: 2em 0 2em 0;
+
 	.circle {
 		border-radius: 50%;
 		width: 120px;
@@ -134,13 +137,13 @@ $text-color: #585858;
 	.circle {
 		position: absolute;
 		left: 92px;
-		top: -20px;
+		top: 0.7em;
 		z-index: -10;
 	}
 
 	.horizontal_line_circle {
 		position: absolute;
-		top: 2.5em;
+		top: 4.5em;
 		left: 210px;
 		z-index: -10;
 		width: 60%;
