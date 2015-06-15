@@ -20,7 +20,6 @@
 				<tr>
 					<th>Заказ №</th>
 					<th>Описание</th>
-					<th>Комментарий</th>
 					<th>Статус</th>
 					<% if current_user.manager? %>
 						<th>Клиент</th>
@@ -40,15 +39,14 @@
 							<% end %>
 						</td>
 						<td><%= order.description %></td>
-						<td><%= order.comment %></td>
 						<td><%= OrderStatus.description[OrderStatus.statuses.invert[order.status]] %></td>
 						<% if current_user.manager? %>
 							<td>
-								<%= "#{order.client.first_name} #{order.client.last_name}" %> <br>
-								<%= "#{order.client.email}" %> <br>
-								<%= "Тел: #{order.client.phone}" %>
+								<%= "#{order.profile.first_name} #{order.profile.last_name}" %> <br>
+								<%= "#{order.profile.email}" %> <br>
+								<%= "Тел: #{order.profile.phone}" %>
 							</td>
-							<td><%= order.operator %></td>
+							<td></td>
 						<% end %>
 						<td><%= link_to '', order, class: "glyphicon glyphicon-circle-arrow-right" %>
 							<%= link_to '', edit_order_path(order), class: "glyphicon glyphicon-edit" %>

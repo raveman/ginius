@@ -11,22 +11,21 @@
 					<div class="modal-header">
 						<h3>Мы обязательно свяжемся с вами, <br>оставьте свои координаты:</h3></a></li>
 					</div>
-	<% end %>
 					<div role="tabpanel" class="tab-pane active" id="profile">
+	<% end %>
 
 						<%= f.fields_for :profile, @profile do |profile_f| %>
 							<%= profile_f.hidden_field :id, value: @profile.id if @profile.present? %>
-							<%= profile_f.text_field :first_name, label: 'Имя', layout: :horizontal, placeholder: 'Иван' %>
+							<%= profile_f.text_field :first_name, label: 'Имя *', layout: :horizontal, placeholder: 'Иван' %>
 							<%= profile_f.text_field :last_name, label: 'Фамилия', layout: :horizontal, placeholder: 'Иванов' %>
-							<%= profile_f.phone_field :phone, label: 'Телефон', layout: :horizontal, placeholder: '+7 (999) 222-33-44' %>
-							<%= profile_f.email_field :email, label: 'E-Mail', layout: :horizontal, placeholder: 'ivan@ivanov.ru' %>
+							<%= profile_f.phone_field :phone, label: 'Телефон *', layout: :horizontal, placeholder: '+7 (999) 222-33-44' %>
+							<%= profile_f.email_field :email, label: 'E-Mail *', layout: :horizontal, placeholder: 'ivan@ivanov.ru' %>
 						<% end %>
 
-						<% if current_page?(root_path) %>
-							<%= f.submit "ОК", class: "btn btn-primary" %>
-						<% end %>
-					</div>
+	
 	<% if current_page?(root_path) %>
+						<%= f.submit "ОК", class: "btn btn-primary" %>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -35,18 +34,19 @@
 	<% if !current_page?(root_path) %>
 		<% if current_user %>
 			<% if current_user.manager? %>
-				<%= f.select :status, OrderStatus.statuses %>
-				<%= f.select :operator, User.operators.collect { |user| [ "#{user.first_name} #{user.last_name}", user.id] } %>
+				<%= f.select :status, OrderStatus.statuses, label: 'Статус заказа', layout: :horizontal %>
 			<% end %>
 		<% end %>
 	<% end %>
 
-	<% if current_page?(root_path) %>
-		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contacts">
-			Отправить
-		</button>
-	<% else %>
-		<%= f.submit "Отправить", class: "btn btn-primary" %>
-	<% end %>
+	<div class="row col-md-12">
+		<% if current_page?(root_path) %>
+			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contacts">
+				Отправить
+			</button>
+		<% else %>
+			<%= f.submit "Сохранить", class: "btn btn-primary" %>
+		<% end %>
+	</div>
 
 <% end %>

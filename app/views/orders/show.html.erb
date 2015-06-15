@@ -6,11 +6,6 @@
 </p>
 
 <p>
-  <strong>Комментарий:</strong>
-  <%= @order.comment %>
-</p>
-
-<p>
   <strong>Статус заказа:</strong>
   <%= OrderStatus.description[OrderStatus.statuses.invert[@order.status]] %>
 </p>
@@ -18,12 +13,12 @@
 <% if current_user.manager? %>
 	<p>
 	  <strong>Клиент:</strong>
-	  <%= link_to "#{@order.client.first_name} #{@order.client.last_name }", edit_user_registration_path(@order.client) %>
+	  <%= link_to "#{@order.profile.first_name} #{@order.profile.last_name }", @order.profile %>
 	</p>
 
 	<p>
 	  <strong>Оператор:</strong>
-	  <%= @order.operator %>
+
 	</p>
 <% end %>
-<%= link_to 'Редактировать', edit_order_path(@order), class: "btn btn-default" %>
+<%= link_to 'Редактировать', edit_order_path(@order), class: "btn btn-info" %>

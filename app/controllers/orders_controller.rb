@@ -17,13 +17,13 @@ class OrdersController < ApplicationController
 	# GET /orders/1
 	# GET /orders/1.json
 	def show
-		if @order.client == current_user
+		# if @order.client == current_user
 			add_breadcrumb 'Главная', :root_path
 			add_breadcrumb 'Заказы', :orders_path
 			add_breadcrumb "Заказ № #{@order.id} от #{@order.date_and_time_created}"
-		else
-			redirect_to orders_path, notice: "У вас нет такого заказа"
-		end
+		# else
+			# redirect_to orders_path, notice: "У вас нет такого заказа"
+		# end
 	end
 
 	# GET /orders/new
