@@ -1,6 +1,6 @@
 <%= bootstrap_form_for(@order) do |f| %>
 
-	<%= f.text_area :description, placeholder: "Хочу себе... ", rows: 8, hide_label: true %>
+	<%= f.text_area :description, placeholder: "Хочу себе... (напишите подробнее, это сократит время согласования)", rows: 8, hide_label: true %>
 	<!-- <%= f.text_area :comment, placeholder: "Комментарий к заказу...", row: 5 %> -->
 
 	<% if current_page?(root_path) %>
