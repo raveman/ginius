@@ -17,3 +17,4 @@
 /tmp
 db/users.rb
 ginius.sublime-workspace
+config/initializers/secrets.rb
