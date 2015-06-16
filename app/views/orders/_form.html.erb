@@ -16,10 +16,11 @@
 
 						<%= f.fields_for :profile, @profile do |profile_f| %>
 							<%= profile_f.hidden_field :id, value: @profile.id if @profile.present? %>
-							<%= profile_f.text_field :first_name, label: 'Имя *', layout: :horizontal, placeholder: 'Иван' %>
-							<%= profile_f.text_field :last_name, label: 'Фамилия', layout: :horizontal, placeholder: 'Иванов' %>
-							<%= profile_f.phone_field :phone, label: 'Телефон *', layout: :horizontal, placeholder: '+7 (999) 222-33-44' %>
-							<%= profile_f.email_field :email, label: 'E-Mail *', layout: :horizontal, placeholder: 'ivan@ivanov.ru' %>
+
+							<%= profile_f.text_field :first_name, label: 'Имя *', layout: :horizontal, placeholder: 'Иван', control_col: 'col-md-9', label_col: 'col-md-3' %>
+							<%= profile_f.text_field :last_name, label: 'Фамилия', layout: :horizontal, placeholder: 'Иванов', control_col: 'col-md-9', label_col: 'col-md-3'  %>
+							<%= profile_f.phone_field :phone, label: 'Телефон *', layout: :horizontal, placeholder: '+7 (999) 222-33-44', control_col: 'col-md-9', label_col: 'col-md-3'  %>
+							<%= profile_f.email_field :email, label: 'E-Mail *', layout: :horizontal, placeholder: 'ivan@ivanov.ru', control_col: 'col-md-9', label_col: 'col-md-3'  %>
 						<% end %>
 
 	
