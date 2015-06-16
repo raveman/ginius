@@ -18,3 +18,5 @@
 db/users.rb
 ginius.sublime-workspace
 config/initializers/secrets.rb
+bin/env.sh
+bin/secrets.sh
