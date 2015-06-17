@@ -11,8 +11,8 @@ class OrderNotifier < ApplicationMailer
 
     @greeting = "Привет, #{@order.profile.first_name}!"
 
-    # emails = [@order.email, 'order@ginius.ru']
-    emails = [@order.profile.email]
+    emails = [@order.profile.email, 'order@ginius.ru']
+    # emails = [@order.profile.email]
     mail to: emails, subject: "Ginius: заявка №#{@order.id} принята!"
   end
 
