@@ -52,8 +52,10 @@ class OrdersController < ApplicationController
 		# @order.client = current_user
 		@order.status = OrderStatus.statuses[:new]
 
+
 		respond_to do |format|
 			if @order.save
+		      	OrderNotifier.received(@order).deliver
 				format.html { redirect_to root_path, notice: 'Ваш заказ принят! Ожидайте звонка оператора.' }
 				format.json { render :show, status: :created, location: @order }
 			else

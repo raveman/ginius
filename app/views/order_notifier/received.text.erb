@@ -1,0 +1,15 @@
+<%= @greeting %>
+
+Номер заказа: №<%= @order.id %> от <%= @order.created_at.strftime('%d.%m.%Y') %> в <%= @order.created_at.strftime('%H:%M') %>
+
+Ваш заказ:
+<%= @order.description %>
+
+Контактные данные:
+Имя: <%= @order.profile.first_name %> <%= @order.profile.last_name if @order.profile.last_name.present? %>
+
+Телефон: <%= @order.profile.phone %>
+
+E-Mail:	<%= @order.profile.email %>
+
+Наш оператор обязательно с вами свяжется в ближайшее время!
